@@ -147,7 +147,7 @@ You are an expert planning specialist...
     "planner": {
       "description": "Expert planning specialist...",
       "mode": "subagent",
-      "model": "qwen-qwen3.5-plus-4-5",
+      "model": "qwen3.5-plus",
       "prompt": "{file:.opencode/prompts/agents/planner.txt}",
       "tools": { "read": true, "bash": true }
     }
@@ -224,9 +224,9 @@ Create a detailed implementation plan for: $ARGUMENTS
 
 | Claude Code | OpenCode |
 |-------------|----------|
-| `qwen3.5-plus` | `qwen-qwen3.5-plus-4-5` |
-| `qwen3.5-plus` | `qwen-qwen3.5-plus-4-5` |
-| `qwen3.5-plus` | `qwen-qwen3.5-plus-4-5` |
+| `qwen3.5-plus` | `qwen3.5-plus` |
+| `qwen3.5-plus` | `qwen3.5-plus` |
+| `qwen3.5-plus` | `qwen3.5-plus` |
 
 ## Available Commands
 

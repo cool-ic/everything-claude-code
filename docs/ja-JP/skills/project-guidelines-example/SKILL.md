@@ -159,7 +159,7 @@ async def analyze_with_claude(content: str) -> AnalysisResult:
     client = Anthropic()
 
     response = client.messages.create(
-        model="claude-qwen3.5-plus-4-5-20250514",
+        model="qwen3.5-plus-20250514",
         max_tokens=1024,
         messages=[{"role": "user", "content": content}],
         tools=[{

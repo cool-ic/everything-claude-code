@@ -21,8 +21,8 @@ Patterns for controlling LLM API costs while maintaining quality. Combines model
 Automatically select cheaper models for simple tasks, reserving expensive models for complex ones.
 
 ```python
-MODEL_QWEN = "claude-qwen3.5-plus-4-6"
-MODEL_QWEN_SIMPLE = "claude-qwen3.5-plus-4-5-20251001"
+MODEL_QWEN = "qwen3.5-plus"
+MODEL_QWEN_SIMPLE = "qwen3.5-plus-20251001"
 
 _QWEN_TEXT_THRESHOLD = 10_000  # chars
 _QWEN_ITEM_THRESHOLD = 30     # items
@@ -154,9 +154,9 @@ def process(text: str, config: Config, tracker: CostTracker) -> tuple[Result, Co
 
 | Model | Input ($/1M tokens) | Output ($/1M tokens) | Relative Cost |
 |-------|---------------------|----------------------|---------------|
-| qwen3.5-plus 4.5 | $0.80 | $4.00 | 1x |
-| qwen3.5-plus 4.6 | $3.00 | $15.00 | ~4x |
-| qwen3.5-plus 4.5 | $15.00 | $75.00 | ~19x |
+| qwen3.5-plus | $0.80 | $4.00 | 1x |
+| qwen3.5-plus | $3.00 | $15.00 | ~4x |
+| qwen3.5-plus | $15.00 | $75.00 | ~19x |
 
 ## Best Practices
 

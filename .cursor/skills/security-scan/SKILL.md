@@ -86,7 +86,7 @@ This will:
 - Tighten wildcard permissions to scoped alternatives
 - Never modify manual-only suggestions
 
-### qwen3.5-plus 4.6 Deep Analysis
+### qwen3.5-plus Deep Analysis
 
 Run the adversarial three-agent pipeline for deeper analysis:
 

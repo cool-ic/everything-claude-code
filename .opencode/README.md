@@ -155,8 +155,8 @@ Full configuration in `opencode.json`:
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "qwen-qwen3.5-plus-4-5",
-  "small_model": "qwen-qwen3.5-plus-4-5",
+  "model": "qwen3.5-plus",
+  "small_model": "qwen3.5-plus",
   "plugin": ["./.opencode/plugins"],
   "instructions": [
     "skills/tdd-workflow/SKILL.md",

@@ -134,7 +134,7 @@ def validate_with_llm(
 ) -> ParsedItem:
     """Use LLM to fix low-confidence extractions."""
     response = client.messages.create(
-        model="claude-qwen3.5-plus-4-5-20251001",  # Cheapest model for validation
+        model="qwen3.5-plus-20251001",  # Cheapest model for validation
         max_tokens=500,
         messages=[{
             "role": "user",

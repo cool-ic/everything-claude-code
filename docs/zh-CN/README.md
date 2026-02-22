@@ -359,7 +359,7 @@ npx ecc-agentshield scan
 # Auto-fix safe issues
 npx ecc-agentshield scan --fix
 
-# Deep analysis with qwen3.5-plus 4.6
+# Deep analysis with qwen3.5-plus
 npx ecc-agentshield scan --qwen3.5-plus --stream
 
 # Generate secure config from scratch

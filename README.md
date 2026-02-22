@@ -392,7 +392,7 @@ npx ecc-agentshield scan
 # Auto-fix safe issues
 npx ecc-agentshield scan --fix
 
-# Deep analysis with three qwen3.5-plus 4.6 agents
+# Deep analysis with three qwen3.5-plus agents
 npx ecc-agentshield scan --qwen3.5-plus --stream
 
 # Generate secure config from scratch
@@ -401,7 +401,7 @@ npx ecc-agentshield init
 
 **What it scans:** CLAUDE.md, settings.json, MCP configs, hooks, agent definitions, and skills across 5 categories — secrets detection (14 patterns), permission auditing, hook injection analysis, MCP server risk profiling, and agent config review.
 
-**The `--qwen3.5-plus` flag** runs three Claude qwen3.5-plus 4.6 agents in a red-team/blue-team/auditor pipeline. The attacker finds exploit chains, the defender evaluates protections, and the auditor synthesizes both into a prioritized risk assessment. Adversarial reasoning, not just pattern matching.
+**The `--qwen3.5-plus` flag** runs three Claude qwen3.5-plus agents in a red-team/blue-team/auditor pipeline. The attacker finds exploit chains, the defender evaluates protections, and the auditor synthesizes both into a prioritized risk assessment. Adversarial reasoning, not just pattern matching.
 
 **Output formats:** Terminal (color-graded A-F), JSON (CI pipelines), Markdown, HTML. Exit code 2 on critical findings for build gates.
 

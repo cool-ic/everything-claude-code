@@ -358,7 +358,7 @@ npx ecc-agentshield scan
 # 安全な問題を自動修正
 npx ecc-agentshield scan --fix
 
-# qwen3.5-plus 4.6 による深い分析
+# qwen3.5-plus による深い分析
 npx ecc-agentshield scan --qwen3.5-plus --stream
 
 # ゼロから安全な設定を生成
