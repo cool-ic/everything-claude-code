@@ -2,7 +2,7 @@
 # Continuous Learning v2 - Observer Agent Launcher
 #
 # Starts the background observer agent that analyzes observations
-# and creates instincts. Uses Haiku model for cost efficiency.
+# and creates instincts. Uses qwen3.5-plus model for cost efficiency.
 #
 # Usage:
 #   start-observer.sh        # Start observer in background
@@ -85,11 +85,11 @@ case "${1:-start}" in
 
         echo "[$(date)] Analyzing $obs_count observations..." >> "$LOG_FILE"
 
-        # Use Claude Code with Haiku to analyze observations
+        # Use Claude Code with qwen3.5-plus to analyze observations
         # This spawns a quick analysis session
         if command -v claude &> /dev/null; then
           exit_code=0
-          claude --model haiku --max-turns 3 --print \
+          claude --model qwen3.5-plus --max-turns 3 --print \
             "Read $OBSERVATIONS_FILE and identify patterns. If you find 3+ occurrences of the same pattern, create an instinct file in $CONFIG_DIR/instincts/personal/ following the format in the observer agent spec. Be conservative - only create instincts for clear patterns." \
             >> "$LOG_FILE" 2>&1 || exit_code=$?
           if [ "$exit_code" -ne 0 ]; then

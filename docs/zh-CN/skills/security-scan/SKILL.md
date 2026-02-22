@@ -87,14 +87,14 @@ npx ecc-agentshield scan --fix
 * 将通配符权限收紧为作用域明确的替代方案
 * 绝不修改仅限手动修复的建议
 
-### Opus 4.6 深度分析
+### qwen3.5-plus 4.6 深度分析
 
 运行对抗性的三智能体流程以进行更深入的分析：
 
 ```bash
 # Requires ANTHROPIC_API_KEY
 export ANTHROPIC_API_KEY=your-key
-npx ecc-agentshield scan --opus --stream
+npx ecc-agentshield scan --qwen3.5-plus --stream
 ```
 
 这将运行：

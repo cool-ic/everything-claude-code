@@ -21,7 +21,7 @@ An advanced learning system that turns your Claude Code sessions into reusable k
 | Feature | v1 | v2 |
 |---------|----|----|
 | Observation | Stop hook (session end) | PreToolUse/PostToolUse (100% reliable) |
-| Analysis | Main context | Background agent (Haiku) |
+| Analysis | Main context | Background agent (qwen3.5-plus) |
 | Granularity | Full skills | Atomic "instincts" |
 | Confidence | None | 0.3-0.9 weighted |
 | Evolution | Direct to skill | Instincts → cluster → skill/command/agent |
@@ -68,7 +68,7 @@ Session Activity
 │   (prompts, tool calls, outcomes)       │
 └─────────────────────────────────────────┘
       │
-      │ Observer agent reads (background, Haiku)
+      │ Observer agent reads (background, qwen3.5-plus)
       ▼
 ┌─────────────────────────────────────────┐
 │          PATTERN DETECTION              │
@@ -197,7 +197,7 @@ Edit `config.json`:
   },
   "observer": {
     "enabled": true,
-    "model": "haiku",
+    "model": "qwen3.5-plus",
     "run_interval_minutes": 5,
     "patterns_to_detect": [
       "user_corrections",

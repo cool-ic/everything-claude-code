@@ -14,11 +14,11 @@ Add to your `~/.claude/settings.json`:
 
 ```json
 {
-  "model": "sonnet",
+  "model": "qwen3.5-plus",
   "env": {
     "MAX_THINKING_TOKENS": "10000",
     "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "50",
-    "CLAUDE_CODE_SUBAGENT_MODEL": "haiku"
+    "CLAUDE_CODE_SUBAGENT_MODEL": "qwen3.5-plus"
   }
 }
 ```
@@ -27,10 +27,10 @@ Add to your `~/.claude/settings.json`:
 
 | Setting | Default | Recommended | Effect |
 |---------|---------|-------------|--------|
-| `model` | opus | **sonnet** | Sonnet handles ~80% of coding tasks well. Switch to Opus with `/model opus` for complex reasoning. ~60% cost reduction. |
+| `model` | qwen3.5-plus | **qwen3.5-plus** | qwen3.5-plus handles ~80% of coding tasks well. Switch to qwen3.5-plus with `/model qwen3.5-plus` for complex reasoning. ~60% cost reduction. |
 | `MAX_THINKING_TOKENS` | 31,999 | **10,000** | Extended thinking reserves up to 31,999 output tokens per request for internal reasoning. Reducing this cuts hidden cost by ~70%. Set to `0` to disable for trivial tasks. |
 | `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE` | 95 | **50** | Auto-compaction triggers when context reaches this % of capacity. Default 95% is too late — quality degrades before that. Compacting at 50% keeps sessions healthier. |
-| `CLAUDE_CODE_SUBAGENT_MODEL` | _(inherits main)_ | **haiku** | Subagents (Task tool) run on this model. Haiku is ~80% cheaper and sufficient for exploration, file reading, and test running. |
+| `CLAUDE_CODE_SUBAGENT_MODEL` | _(inherits main)_ | **qwen3.5-plus** | Subagents (Task tool) run on this model. qwen3.5-plus is ~80% cheaper and sufficient for exploration, file reading, and test running. |
 
 ### Toggling extended thinking
 
@@ -45,16 +45,16 @@ Use the right model for the task:
 
 | Model | Best for | Cost |
 |-------|----------|------|
-| **Haiku** | Subagent exploration, file reading, simple lookups | Lowest |
-| **Sonnet** | Day-to-day coding, reviews, test writing, implementation | Medium |
-| **Opus** | Complex architecture, multi-step reasoning, debugging subtle issues | Highest |
+| **qwen3.5-plus** | Subagent exploration, file reading, simple lookups | Lowest |
+| **qwen3.5-plus** | Day-to-day coding, reviews, test writing, implementation | Medium |
+| **qwen3.5-plus** | Complex architecture, multi-step reasoning, debugging subtle issues | Highest |
 
 Switch models mid-session:
 
 ```
-/model sonnet     # default for most work
-/model opus       # complex reasoning
-/model haiku      # quick lookups
+/model qwen3.5-plus     # default for most work
+/model qwen3.5-plus       # complex reasoning
+/model qwen3.5-plus      # quick lookups
 ```
 
 ---
@@ -122,8 +122,8 @@ The `configure-ecc` install wizard could offer to set these environment variable
 
 ```bash
 # Daily workflow
-/model sonnet              # Start here
-/model opus                # Only for complex reasoning
+/model qwen3.5-plus              # Start here
+/model qwen3.5-plus                # Only for complex reasoning
 /clear                     # Between unrelated tasks
 /compact                   # At logical breakpoints
 /cost                      # Check spending
@@ -131,6 +131,6 @@ The `configure-ecc` install wizard could offer to set these environment variable
 # Environment variables (add to ~/.claude/settings.json "env" block)
 MAX_THINKING_TOKENS=10000
 CLAUDE_AUTOCOMPACT_PCT_OVERRIDE=50
-CLAUDE_CODE_SUBAGENT_MODEL=haiku
+CLAUDE_CODE_SUBAGENT_MODEL=qwen3.5-plus
 CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1
 ```

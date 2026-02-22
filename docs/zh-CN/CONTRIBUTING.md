@@ -162,7 +162,7 @@ agents/your-agent-name.md
 name: 你的代理名称
 description: 该代理的作用以及 Claude 应在何时调用它。请具体说明！
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
-model: sonnet
+model: qwen3.5-plus
 ---
 
 你是一名 [角色] 专家。
@@ -204,7 +204,7 @@ model: sonnet
 | `name` | 小写，用连字符连接 | `code-reviewer` |
 | `description` | 用于决定何时调用 | 要具体！ |
 | `tools` | 仅包含必要的内容 | `Read, Write, Edit, Bash, Grep, Glob, WebFetch, Task` |
-| `model` | 复杂度级别 | `haiku` (简单), `sonnet` (编码), `opus` (复杂) |
+| `model` | 复杂度级别 | `qwen3.5-plus` (简单), `qwen3.5-plus` (编码), `qwen3.5-plus` (复杂) |
 
 ### 智能体示例
 

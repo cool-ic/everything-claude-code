@@ -358,8 +358,8 @@ npx ecc-agentshield scan
 # 安全な問題を自動修正
 npx ecc-agentshield scan --fix
 
-# Opus 4.6 による深い分析
-npx ecc-agentshield scan --opus --stream
+# qwen3.5-plus 4.6 による深い分析
+npx ecc-agentshield scan --qwen3.5-plus --stream
 
 # ゼロから安全な設定を生成
 npx ecc-agentshield init
@@ -515,7 +515,7 @@ cp -r everything-claude-code/skills/* ~/.claude/skills/
 name: code-reviewer
 description: コードの品質、セキュリティ、保守性をレビュー
 tools: ["Read", "Grep", "Glob", "Bash"]
-model: opus
+model: qwen3.5-plus
 ---
 
 あなたは経験豊富なコードレビュアーです...

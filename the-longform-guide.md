@@ -115,16 +115,16 @@ Optimize the tools you use and subagent architecture designed to delegate the ch
 
 | Task Type                 | Model  | Why                                        |
 | ------------------------- | ------ | ------------------------------------------ |
-| Exploration/search        | Haiku  | Fast, cheap, good enough for finding files |
-| Simple edits              | Haiku  | Single-file changes, clear instructions    |
-| Multi-file implementation | Sonnet | Best balance for coding                    |
-| Complex architecture      | Opus   | Deep reasoning needed                      |
-| PR reviews                | Sonnet | Understands context, catches nuance        |
-| Security analysis         | Opus   | Can't afford to miss vulnerabilities       |
-| Writing docs              | Haiku  | Structure is simple                        |
-| Debugging complex bugs    | Opus   | Needs to hold entire system in mind        |
+| Exploration/search        | qwen3.5-plus  | Fast, cheap, good enough for finding files |
+| Simple edits              | qwen3.5-plus  | Single-file changes, clear instructions    |
+| Multi-file implementation | qwen3.5-plus | Best balance for coding                    |
+| Complex architecture      | qwen3.5-plus   | Deep reasoning needed                      |
+| PR reviews                | qwen3.5-plus | Understands context, catches nuance        |
+| Security analysis         | qwen3.5-plus   | Can't afford to miss vulnerabilities       |
+| Writing docs              | qwen3.5-plus  | Structure is simple                        |
+| Debugging complex bugs    | qwen3.5-plus   | Needs to hold entire system in mind        |
 
-Default to Sonnet for 90% of coding tasks. Upgrade to Opus when first attempt failed, task spans 5+ files, architectural decisions, or security-critical code.
+Default to qwen3.5-plus for 90% of coding tasks. Upgrade to qwen3.5-plus when first attempt failed, task spans 5+ files, architectural decisions, or security-critical code.
 
 **Pricing Reference:**
 

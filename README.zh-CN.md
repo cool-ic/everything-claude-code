@@ -384,7 +384,7 @@ cp -r everything-claude-code/skills/* ~/.claude/skills/
 name: code-reviewer
 description: 审查代码的质量、安全性和可维护性
 tools: ["Read", "Grep", "Glob", "Bash"]
-model: opus
+model: qwen3.5-plus
 ---
 
 你是一名高级代码审查员...

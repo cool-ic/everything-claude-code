@@ -1,7 +1,7 @@
 ---
 name: observer
 description: 背景代理，通过分析会话观察来检测模式并创建本能。使用俳句以实现成本效益。
-model: haiku
+model: qwen3.5-plus
 run_mode: background
 ---
 

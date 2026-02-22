@@ -13,7 +13,7 @@ Claude Codeセッションを信頼度スコアリング付きの小さな学習
 | 機能 | v1 | v2 |
 |---------|----|----|
 | 観察 | Stopフック（セッション終了） | PreToolUse/PostToolUse（100%信頼性） |
-| 分析 | メインコンテキスト | バックグラウンドエージェント（Haiku） |
+| 分析 | メインコンテキスト | バックグラウンドエージェント（qwen3.5-plus） |
 | 粒度 | 完全なスキル | アトミック「インスティンクト」 |
 | 信頼度 | なし | 0.3-0.9重み付け |
 | 進化 | 直接スキルへ | インスティンクト → クラスター → スキル/コマンド/エージェント |
@@ -60,7 +60,7 @@ Session Activity
 │   (prompts, tool calls, outcomes)       │
 └─────────────────────────────────────────┘
       │
-      │ Observerエージェントが読み取り（バックグラウンド、Haiku）
+      │ Observerエージェントが読み取り（バックグラウンド、qwen3.5-plus）
       ▼
 ┌─────────────────────────────────────────┐
 │          パターン検出                    │
@@ -189,7 +189,7 @@ touch ~/.claude/homunculus/observations.jsonl
   },
   "observer": {
     "enabled": true,
-    "model": "haiku",
+    "model": "qwen3.5-plus",
     "run_interval_minutes": 5,
     "patterns_to_detect": [
       "user_corrections",

@@ -13,7 +13,7 @@ version: 2.0.0
 | 功能 | v1 | v2 |
 |------|----|----|
 | 觀察 | Stop hook（工作階段結束） | PreToolUse/PostToolUse（100% 可靠） |
-| 分析 | 主要上下文 | 背景 agent（Haiku） |
+| 分析 | 主要上下文 | 背景 agent（qwen3.5-plus） |
 | 粒度 | 完整技能 | 原子「本能」 |
 | 信心 | 無 | 0.3-0.9 加權 |
 | 演化 | 直接到技能 | 本能 → 聚類 → 技能/指令/agent |
@@ -60,7 +60,7 @@ source: "session-observation"
 │   （提示、工具呼叫、結果）               │
 └─────────────────────────────────────────┘
       │
-      │ Observer agent 讀取（背景、Haiku）
+      │ Observer agent 讀取（背景、qwen3.5-plus）
       ▼
 ┌─────────────────────────────────────────┐
 │          模式偵測                        │
@@ -162,7 +162,7 @@ touch ~/.claude/homunculus/observations.jsonl
   },
   "observer": {
     "enabled": true,
-    "model": "haiku",
+    "model": "qwen3.5-plus",
     "run_interval_minutes": 5,
     "patterns_to_detect": [
       "user_corrections",

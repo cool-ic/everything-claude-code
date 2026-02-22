@@ -13,7 +13,7 @@ version: 2.0.0
 | 特性 | v1 | v2 |
 |---------|----|----|
 | 观察 | 停止钩子（会话结束） | 工具使用前/后（100% 可靠） |
-| 分析 | 主上下文 | 后台代理（Haiku） |
+| 分析 | 主上下文 | 后台代理（qwen3.5-plus） |
 | 粒度 | 完整技能 | 原子化的“本能” |
 | 置信度 | 无 | 0.3-0.9 加权 |
 | 演进 | 直接到技能 | 本能 → 聚类 → 技能/命令/代理 |
@@ -61,7 +61,7 @@ Session Activity
 │   (prompts, tool calls, outcomes)       │
 └─────────────────────────────────────────┘
       │
-      │ Observer agent reads (background, Haiku)
+      │ Observer agent reads (background, qwen3.5-plus)
       ▼
 ┌─────────────────────────────────────────┐
 │          PATTERN DETECTION              │
@@ -190,7 +190,7 @@ touch ~/.claude/homunculus/observations.jsonl
   },
   "observer": {
     "enabled": true,
-    "model": "haiku",
+    "model": "qwen3.5-plus",
     "run_interval_minutes": 5,
     "patterns_to_detect": [
       "user_corrections",

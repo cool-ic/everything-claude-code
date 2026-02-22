@@ -392,8 +392,8 @@ npx ecc-agentshield scan
 # Auto-fix safe issues
 npx ecc-agentshield scan --fix
 
-# Deep analysis with three Opus 4.6 agents
-npx ecc-agentshield scan --opus --stream
+# Deep analysis with three qwen3.5-plus 4.6 agents
+npx ecc-agentshield scan --qwen3.5-plus --stream
 
 # Generate secure config from scratch
 npx ecc-agentshield init
@@ -401,7 +401,7 @@ npx ecc-agentshield init
 
 **What it scans:** CLAUDE.md, settings.json, MCP configs, hooks, agent definitions, and skills across 5 categories — secrets detection (14 patterns), permission auditing, hook injection analysis, MCP server risk profiling, and agent config review.
 
-**The `--opus` flag** runs three Claude Opus 4.6 agents in a red-team/blue-team/auditor pipeline. The attacker finds exploit chains, the defender evaluates protections, and the auditor synthesizes both into a prioritized risk assessment. Adversarial reasoning, not just pattern matching.
+**The `--qwen3.5-plus` flag** runs three Claude qwen3.5-plus 4.6 agents in a red-team/blue-team/auditor pipeline. The attacker finds exploit chains, the defender evaluates protections, and the auditor synthesizes both into a prioritized risk assessment. Adversarial reasoning, not just pattern matching.
 
 **Output formats:** Terminal (color-graded A-F), JSON (CI pipelines), Markdown, HTML. Exit code 2 on critical findings for build gates.
 
@@ -553,7 +553,7 @@ Subagents handle delegated tasks with limited scope. Example:
 name: code-reviewer
 description: Reviews code for quality, security, and maintainability
 tools: ["Read", "Grep", "Glob", "Bash"]
-model: opus
+model: qwen3.5-plus
 ---
 
 You are a senior code reviewer...
@@ -911,7 +911,7 @@ Add to `~/.claude/settings.json`:
 
 ```json
 {
-  "model": "sonnet",
+  "model": "qwen3.5-plus",
   "env": {
     "MAX_THINKING_TOKENS": "10000",
     "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "50"
@@ -921,21 +921,21 @@ Add to `~/.claude/settings.json`:
 
 | Setting | Default | Recommended | Impact |
 |---------|---------|-------------|--------|
-| `model` | opus | **sonnet** | ~60% cost reduction; handles 80%+ of coding tasks |
+| `model` | qwen3.5-plus | **qwen3.5-plus** | ~60% cost reduction; handles 80%+ of coding tasks |
 | `MAX_THINKING_TOKENS` | 31,999 | **10,000** | ~70% reduction in hidden thinking cost per request |
 | `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE` | 95 | **50** | Compacts earlier — better quality in long sessions |
 
-Switch to Opus only when you need deep architectural reasoning:
+Switch to qwen3.5-plus only when you need deep architectural reasoning:
 ```
-/model opus
+/model qwen3.5-plus
 ```
 
 ### Daily Workflow Commands
 
 | Command | When to Use |
 |---------|-------------|
-| `/model sonnet` | Default for most tasks |
-| `/model opus` | Complex architecture, debugging, deep reasoning |
+| `/model qwen3.5-plus` | Default for most tasks |
+| `/model qwen3.5-plus` | Complex architecture, debugging, deep reasoning |
 | `/clear` | Between unrelated tasks (free, instant reset) |
 | `/compact` | At logical task breakpoints (research done, milestone complete) |
 | `/cost` | Monitor token spending during session |
@@ -978,11 +978,11 @@ Quick wins:
 ```json
 // ~/.claude/settings.json
 {
-  "model": "sonnet",
+  "model": "qwen3.5-plus",
   "env": {
     "MAX_THINKING_TOKENS": "10000",
     "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "50",
-    "CLAUDE_CODE_SUBAGENT_MODEL": "haiku"
+    "CLAUDE_CODE_SUBAGENT_MODEL": "qwen3.5-plus"
   }
 }
 ```

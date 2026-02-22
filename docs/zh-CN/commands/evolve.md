@@ -195,7 +195,7 @@ evolved_from:
 ---
 name: debugger
 description: 系统性调试代理
-model: sonnet
+model: qwen3.5-plus
 evolved_from:
   - debug-check-logs
   - debug-isolate

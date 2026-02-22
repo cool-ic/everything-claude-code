@@ -1,7 +1,7 @@
 ---
 name: observer
-description: セッションの観察を分析してパターンを検出し、本能を作成するバックグラウンドエージェント。コスト効率のためにHaikuを使用します。
-model: haiku
+description: セッションの観察を分析してパターンを検出し、本能を作成するバックグラウンドエージェント。コスト効率のためにqwen3.5-plusを使用します。
+model: qwen3.5-plus
 run_mode: background
 ---
 

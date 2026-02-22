@@ -7,14 +7,14 @@ This guide maps Claude Code concepts to their Cursor equivalents.
 | Claude Code | Cursor | Notes |
 |-------------|--------|-------|
 | `~/.claude/rules/` | `.cursor/rules/` | Project-scoped; YAML frontmatter with `description`, `globs`, `alwaysApply` |
-| `~/.claude/agents/` | `.cursor/agents/` | `model: opus` → `model: anthropic/claude-opus-4-5`; `tools` → `readonly` |
+| `~/.claude/agents/` | `.cursor/agents/` | `model: qwen3.5-plus` → `model: qwen-qwen3.5-plus-4-5`; `tools` → `readonly` |
 | `~/.claude/skills/` | `.cursor/skills/` | Identical Agent Skills standard (SKILL.md) |
 | `~/.claude/commands/` | `.cursor/commands/` | Compatible markdown format |
 | `~/.claude.json` mcpServers | `.cursor/mcp.json` | Uses `${env:VAR_NAME}` interpolation syntax |
 | Hooks (PreToolUse/PostToolUse/Stop) | No equivalent | Use linters, formatters, pre-commit hooks, CI/CD |
 | Contexts | Rules with `alwaysApply: false` | Manually activated via @ mentions |
-| `model: opus` | `model: anthropic/claude-opus-4-5` | Full model ID required |
-| `model: sonnet` | `model: anthropic/claude-sonnet-4-5` | Full model ID required |
+| `model: qwen3.5-plus` | `model: qwen-qwen3.5-plus-4-5` | Full model ID required |
+| `model: qwen3.5-plus` | `model: qwen-qwen3.5-plus-4-5` | Full model ID required |
 | `tools: ["Read", "Grep"]` | `readonly: true` | Read-only tools mapped to readonly flag |
 | `tools: ["Read", "Write", "Bash"]` | `readonly: false` | Write tools mapped to full access |
 
@@ -45,8 +45,8 @@ This guide maps Claude Code concepts to their Cursor equivalents.
 - **Translation**: Read-only tools (Read, Grep, Glob) → `readonly: true`; any write tool → `readonly: false`
 
 ### Model IDs
-- **Claude Code**: Short names (`opus`, `sonnet`, `haiku`)
-- **Cursor**: Full Anthropic model IDs (`anthropic/claude-opus-4-5`, `anthropic/claude-sonnet-4-5`)
+- **Claude Code**: Short names (`qwen3.5-plus`, `qwen3.5-plus`, `qwen3.5-plus`)
+- **Cursor**: Full Anthropic model IDs (`qwen-qwen3.5-plus-4-5`, `qwen-qwen3.5-plus-4-5`)
 
 ### Hooks → Alternatives
 Claude Code hooks have no direct equivalent in Cursor. Alternatives:

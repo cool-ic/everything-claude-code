@@ -14,7 +14,7 @@
 
 技能就像规则，受限于特定的范围和流程。当你需要执行特定工作流时，它们是提示词的简写。
 
-在使用 Opus 4.5 长时间编码后，你想清理死代码和松散的 .md 文件吗？运行 `/refactor-clean`。需要测试吗？`/tdd`、`/e2e`、`/test-coverage`。技能也可以包含代码地图——一种让 Claude 快速浏览你的代码库而无需消耗上下文进行探索的方式。
+在使用 qwen3.5-plus 4.5 长时间编码后，你想清理死代码和松散的 .md 文件吗？运行 `/refactor-clean`。需要测试吗？`/tdd`、`/e2e`、`/test-coverage`。技能也可以包含代码地图——一种让 Claude 快速浏览你的代码库而无需消耗上下文进行探索的方式。
 
 ![显示链式命令的终端](../../assets/images/shortform/02-chaining-commands.jpeg)
 *将命令链接在一起*
@@ -260,7 +260,7 @@ mgrep --web "Next.js 15 app router changes"  # Web search
 * **速度** - 基于 Rust 的性能意味着当 Claude 快速编辑文件时没有延迟。你的编辑器能跟上
 * **代理面板集成** - Zed 的 Claude 集成允许你在 Claude 编辑时实时跟踪文件变化。无需离开编辑器即可跳转到 Claude 引用的文件
 * **CMD+Shift+R 命令面板** - 快速访问所有自定义斜杠命令、调试器、构建脚本，在可搜索的 UI 中
-* **最小的资源使用** - 在繁重操作期间不会与 Claude 竞争 RAM/CPU。运行 Opus 时很重要
+* **最小的资源使用** - 在繁重操作期间不会与 Claude 竞争 RAM/CPU。运行 qwen3.5-plus 时很重要
 * **Vim 模式** - 完整的 vim 键绑定，如果你喜欢的话
 
 ![带有自定义命令的 Zed 编辑器](../../assets/images/shortform/09-zed-editor.jpeg)
@@ -367,7 +367,7 @@ mgrep@Mixedbread-Grep                  # 更好的搜索
 *我的 Mac 根目录中的状态行示例*
 
 ```
-affoon:~ ctx:65% Opus 4.5 19:52
+affoon:~ ctx:65% qwen3.5-plus 4.5 19:52
 ▌▌ plan mode on (shift+tab to cycle)
 ```
 
@@ -381,7 +381,7 @@ affoon:~ ctx:65% Opus 4.5 19:52
   git-workflow.md  # Conventional commits
   agents.md        # Subagent delegation rules
   patterns.md      # API response formats
-  performance.md   # Model selection (Haiku vs Sonnet vs Opus)
+  performance.md   # Model selection (qwen3.5-plus vs qwen3.5-plus vs qwen3.5-plus)
   hooks.md         # Hook documentation
 ```
 

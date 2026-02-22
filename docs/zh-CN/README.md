@@ -359,8 +359,8 @@ npx ecc-agentshield scan
 # Auto-fix safe issues
 npx ecc-agentshield scan --fix
 
-# Deep analysis with Opus 4.6
-npx ecc-agentshield scan --opus --stream
+# Deep analysis with qwen3.5-plus 4.6
+npx ecc-agentshield scan --qwen3.5-plus --stream
 
 # Generate secure config from scratch
 npx ecc-agentshield init
@@ -517,7 +517,7 @@ cp -r everything-claude-code/skills/* ~/.claude/skills/
 name: code-reviewer
 description: 审查代码的质量、安全性和可维护性
 tools: ["Read", "Grep", "Glob", "Bash"]
-model: opus
+model: qwen3.5-plus
 ---
 
 您是一位资深代码审查员...

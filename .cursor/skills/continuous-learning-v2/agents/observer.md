@@ -1,7 +1,7 @@
 ---
 name: observer
-description: Background agent that analyzes session observations to detect patterns and create instincts. Uses Haiku for cost-efficiency.
-model: haiku
+description: Background agent that analyzes session observations to detect patterns and create instincts. Uses qwen3.5-plus for cost-efficiency.
+model: qwen3.5-plus
 run_mode: background
 ---
 

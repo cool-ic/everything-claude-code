@@ -86,14 +86,14 @@ This will:
 - Tighten wildcard permissions to scoped alternatives
 - Never modify manual-only suggestions
 
-### Opus 4.6 Deep Analysis
+### qwen3.5-plus 4.6 Deep Analysis
 
 Run the adversarial three-agent pipeline for deeper analysis:
 
 ```bash
 # Requires ANTHROPIC_API_KEY
 export ANTHROPIC_API_KEY=your-key
-npx ecc-agentshield scan --opus --stream
+npx ecc-agentshield scan --qwen3.5-plus --stream
 ```
 
 This runs:

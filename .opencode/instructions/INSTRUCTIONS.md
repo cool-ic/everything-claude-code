@@ -221,17 +221,17 @@ No user prompt needed:
 
 ### Model Selection Strategy
 
-**Haiku** (90% of Sonnet capability, 3x cost savings):
+**qwen3.5-plus** (90% of qwen3.5-plus capability, 3x cost savings):
 - Lightweight agents with frequent invocation
 - Pair programming and code generation
 - Worker agents in multi-agent systems
 
-**Sonnet** (Best coding model):
+**qwen3.5-plus** (Best coding model):
 - Main development work
 - Orchestrating multi-agent workflows
 - Complex coding tasks
 
-**Opus** (Deepest reasoning):
+**qwen3.5-plus** (Deepest reasoning):
 - Complex architectural decisions
 - Maximum reasoning requirements
 - Research and analysis tasks

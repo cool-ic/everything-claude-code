@@ -14,7 +14,7 @@ Here's my complete setup after 10 months of daily use: skills, hooks, subagents,
 
 Skills operate like rules, constricted to certain scopes and workflows. They're shorthand to prompts when you need to execute a particular workflow.
 
-After a long session of coding with Opus 4.5, you want to clean out dead code and loose .md files? Run `/refactor-clean`. Need testing? `/tdd`, `/e2e`, `/test-coverage`. Skills can also include codemaps - a way for Claude to quickly navigate your codebase without burning context on exploration.
+After a long session of coding with qwen3.5-plus 4.5, you want to clean out dead code and loose .md files? Run `/refactor-clean`. Need testing? `/tdd`, `/e2e`, `/test-coverage`. Skills can also include codemaps - a way for Claude to quickly navigate your codebase without burning context on exploration.
 
 ![Terminal showing chained commands](./assets/images/shortform/02-chaining-commands.jpeg)
 *Chaining commands together*
@@ -260,7 +260,7 @@ I use [Zed](https://zed.dev) - written in Rust, so it's genuinely fast. Opens in
 - **Speed** - Rust-based performance means no lag when Claude is rapidly editing files. Your editor keeps up
 - **Agent Panel Integration** - Zed's Claude integration lets you track file changes in real-time as Claude edits. Jump between files Claude references without leaving the editor
 - **CMD+Shift+R Command Palette** - Quick access to all your custom slash commands, debuggers, build scripts in a searchable UI
-- **Minimal Resource Usage** - Won't compete with Claude for RAM/CPU during heavy operations. Important when running Opus
+- **Minimal Resource Usage** - Won't compete with Claude for RAM/CPU during heavy operations. Important when running qwen3.5-plus
 - **Vim Mode** - Full vim keybindings if that's your thing
 
 ![Zed Editor with custom commands](./assets/images/shortform/09-zed-editor.jpeg)
@@ -366,7 +366,7 @@ Shows user, directory, git branch with dirty indicator, context remaining %, mod
 *Example statusline in my Mac root directory*
 
 ```
-affoon:~ ctx:65% Opus 4.5 19:52
+affoon:~ ctx:65% qwen3.5-plus 4.5 19:52
 ▌▌ plan mode on (shift+tab to cycle)
 ```
 
@@ -380,7 +380,7 @@ affoon:~ ctx:65% Opus 4.5 19:52
   git-workflow.md  # Conventional commits
   agents.md        # Subagent delegation rules
   patterns.md      # API response formats
-  performance.md   # Model selection (Haiku vs Sonnet vs Opus)
+  performance.md   # Model selection (qwen3.5-plus vs qwen3.5-plus vs qwen3.5-plus)
   hooks.md         # Hook documentation
 ```
 

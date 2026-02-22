@@ -2,7 +2,7 @@
 name: database-reviewer
 description: PostgreSQL数据库专家，专注于查询优化、架构设计、安全性和性能。在编写SQL、创建迁移、设计架构或排查数据库性能问题时，请主动使用。融合了Supabase最佳实践。
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
-model: opus
+model: qwen3.5-plus
 ---
 
 # 数据库审查员

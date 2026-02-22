@@ -180,7 +180,7 @@ evolved_from:
 ---
 name: debugger
 description: Systematic debugging agent
-model: sonnet
+model: qwen3.5-plus
 evolved_from:
   - debug-check-logs
   - debug-isolate

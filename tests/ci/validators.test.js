@@ -163,7 +163,7 @@ function runTests() {
 
   if (test('fails on agent missing required tools field', () => {
     const testDir = createTestDir();
-    fs.writeFileSync(path.join(testDir, 'no-tools.md'), '---\nmodel: sonnet\n---\n# Agent');
+    fs.writeFileSync(path.join(testDir, 'no-tools.md'), '---\nmodel: qwen3.5-plus\n---\n# Agent');
 
     const result = runValidatorWithDir('validate-agents', 'AGENTS_DIR', testDir);
     assert.strictEqual(result.code, 1, 'Should exit 1 for missing tools');
@@ -173,7 +173,7 @@ function runTests() {
 
   if (test('passes on valid agent with all required fields', () => {
     const testDir = createTestDir();
-    fs.writeFileSync(path.join(testDir, 'good-agent.md'), '---\nmodel: sonnet\ntools: Read, Write\n---\n# Agent');
+    fs.writeFileSync(path.join(testDir, 'good-agent.md'), '---\nmodel: qwen3.5-plus\ntools: Read, Write\n---\n# Agent');
 
     const result = runValidatorWithDir('validate-agents', 'AGENTS_DIR', testDir);
     assert.strictEqual(result.code, 0, 'Should pass for valid agent');
@@ -183,7 +183,7 @@ function runTests() {
 
   if (test('handles frontmatter with BOM and CRLF', () => {
     const testDir = createTestDir();
-    const content = '\uFEFF---\r\nmodel: sonnet\r\ntools: Read, Write\r\n---\r\n# Agent';
+    const content = '\uFEFF---\r\nmodel: qwen3.5-plus\r\ntools: Read, Write\r\n---\r\n# Agent';
     fs.writeFileSync(path.join(testDir, 'bom-agent.md'), content);
 
     const result = runValidatorWithDir('validate-agents', 'AGENTS_DIR', testDir);
@@ -193,7 +193,7 @@ function runTests() {
 
   if (test('handles frontmatter with colons in values', () => {
     const testDir = createTestDir();
-    fs.writeFileSync(path.join(testDir, 'colon-agent.md'), '---\nmodel: sonnet\ntools: Read, Write, Bash\ndescription: Run this: always check: everything\n---\n# Agent');
+    fs.writeFileSync(path.join(testDir, 'colon-agent.md'), '---\nmodel: qwen3.5-plus\ntools: Read, Write, Bash\ndescription: Run this: always check: everything\n---\n# Agent');
 
     const result = runValidatorWithDir('validate-agents', 'AGENTS_DIR', testDir);
     assert.strictEqual(result.code, 0, 'Should handle colons in values');
@@ -203,7 +203,7 @@ function runTests() {
   if (test('skips non-md files', () => {
     const testDir = createTestDir();
     fs.writeFileSync(path.join(testDir, 'readme.txt'), 'Not an agent');
-    fs.writeFileSync(path.join(testDir, 'valid.md'), '---\nmodel: sonnet\ntools: Read\n---\n# Agent');
+    fs.writeFileSync(path.join(testDir, 'valid.md'), '---\nmodel: qwen3.5-plus\ntools: Read\n---\n# Agent');
 
     const result = runValidatorWithDir('validate-agents', 'AGENTS_DIR', testDir);
     assert.strictEqual(result.code, 0, 'Should only validate .md files');
@@ -228,7 +228,7 @@ function runTests() {
 
   if (test('rejects agent with empty tools value', () => {
     const testDir = createTestDir();
-    fs.writeFileSync(path.join(testDir, 'empty.md'), '---\nmodel: claude-sonnet-4-5-20250929\ntools:\n---\n# Empty tools');
+    fs.writeFileSync(path.join(testDir, 'empty.md'), '---\nmodel: qwen3.5-plus\ntools:\n---\n# Empty tools');
     const result = runValidatorWithDir('validate-agents', 'AGENTS_DIR', testDir);
     assert.strictEqual(result.code, 1, 'Should reject empty tools');
     assert.ok(result.stderr.includes('tools'), 'Should mention tools field');
@@ -576,7 +576,7 @@ function runTests() {
     const testDir = createTestDir();
     const agentsDir = createTestDir();
     const skillsDir = createTestDir();
-    fs.writeFileSync(path.join(agentsDir, 'planner.md'), '---\nmodel: sonnet\ntools: Read\n---\n# A');
+    fs.writeFileSync(path.join(agentsDir, 'planner.md'), '---\nmodel: qwen3.5-plus\ntools: Read\n---\n# A');
     fs.writeFileSync(path.join(testDir, 'cmd.md'), '# Command\nWorkflow:\nplanner -> ghost-agent');
 
     const result = runValidatorWithDirs('validate-commands', {
@@ -707,8 +707,8 @@ function runTests() {
     const testDir = createTestDir();
     const agentsDir = createTestDir();
     const skillsDir = createTestDir();
-    fs.writeFileSync(path.join(agentsDir, 'planner.md'), '---\nmodel: sonnet\ntools: Read\n---\n# P');
-    fs.writeFileSync(path.join(agentsDir, 'reviewer.md'), '---\nmodel: sonnet\ntools: Read\n---\n# R');
+    fs.writeFileSync(path.join(agentsDir, 'planner.md'), '---\nmodel: qwen3.5-plus\ntools: Read\n---\n# P');
+    fs.writeFileSync(path.join(agentsDir, 'reviewer.md'), '---\nmodel: qwen3.5-plus\ntools: Read\n---\n# R');
     fs.writeFileSync(path.join(testDir, 'flow.md'), '# Workflow\n\nplanner -> reviewer');
 
     const result = runValidatorWithDirs('validate-commands', {
@@ -844,7 +844,7 @@ function runTests() {
 
   if (test('rejects agent with whitespace-only tools value', () => {
     const testDir = createTestDir();
-    fs.writeFileSync(path.join(testDir, 'ws-tools.md'), '---\nmodel: sonnet\ntools:   \t  \n---\n# Agent');
+    fs.writeFileSync(path.join(testDir, 'ws-tools.md'), '---\nmodel: qwen3.5-plus\ntools:   \t  \n---\n# Agent');
 
     const result = runValidatorWithDir('validate-agents', 'AGENTS_DIR', testDir);
     assert.strictEqual(result.code, 1, 'Should reject whitespace-only tools');
@@ -854,7 +854,7 @@ function runTests() {
 
   if (test('accepts agent with extra unknown frontmatter fields', () => {
     const testDir = createTestDir();
-    fs.writeFileSync(path.join(testDir, 'extra.md'), '---\nmodel: sonnet\ntools: Read, Write\ncustom_field: some value\nauthor: test\n---\n# Agent');
+    fs.writeFileSync(path.join(testDir, 'extra.md'), '---\nmodel: qwen3.5-plus\ntools: Read, Write\ncustom_field: some value\nauthor: test\n---\n# Agent');
 
     const result = runValidatorWithDir('validate-agents', 'AGENTS_DIR', testDir);
     assert.strictEqual(result.code, 0, 'Should accept extra unknown fields');
@@ -879,7 +879,7 @@ function runTests() {
     const testDir = createTestDir();
     const agentsDir = createTestDir();
     const skillsDir = createTestDir();
-    fs.writeFileSync(path.join(agentsDir, 'real-agent.md'), '---\nmodel: sonnet\ntools: Read\n---\n# A');
+    fs.writeFileSync(path.join(agentsDir, 'real-agent.md'), '---\nmodel: qwen3.5-plus\ntools: Read\n---\n# A');
     fs.writeFileSync(path.join(testDir, 'cmd.md'),
       '# Cmd\nSee agents/real-agent.md and agents/fake-one.md and agents/fake-two.md');
 
@@ -897,8 +897,8 @@ function runTests() {
     const testDir = createTestDir();
     const agentsDir = createTestDir();
     const skillsDir = createTestDir();
-    fs.writeFileSync(path.join(agentsDir, 'tdd-guide.md'), '---\nmodel: sonnet\ntools: Read\n---\n# T');
-    fs.writeFileSync(path.join(agentsDir, 'code-reviewer.md'), '---\nmodel: sonnet\ntools: Read\n---\n# C');
+    fs.writeFileSync(path.join(agentsDir, 'tdd-guide.md'), '---\nmodel: qwen3.5-plus\ntools: Read\n---\n# T');
+    fs.writeFileSync(path.join(agentsDir, 'code-reviewer.md'), '---\nmodel: qwen3.5-plus\ntools: Read\n---\n# C');
     fs.writeFileSync(path.join(testDir, 'flow.md'), '# Workflow\n\ntdd-guide -> code-reviewer');
 
     const result = runValidatorWithDirs('validate-commands', {
@@ -1406,14 +1406,14 @@ function runTests() {
     cleanupTestDir(testDir);
   })) passed++; else failed++;
 
-  if (test('accepts all valid model values (haiku, sonnet, opus)', () => {
+  if (test('accepts all valid model values (qwen3.5-plus, qwen3.5-plus, qwen3.5-plus)', () => {
     const testDir = createTestDir();
-    fs.writeFileSync(path.join(testDir, 'haiku.md'),
-      '---\nmodel: haiku\ntools: Read\n---\n# Haiku Agent');
-    fs.writeFileSync(path.join(testDir, 'sonnet.md'),
-      '---\nmodel: sonnet\ntools: Read, Write\n---\n# Sonnet Agent');
-    fs.writeFileSync(path.join(testDir, 'opus.md'),
-      '---\nmodel: opus\ntools: Read, Write, Bash\n---\n# Opus Agent');
+    fs.writeFileSync(path.join(testDir, 'qwen3.5-plus.md'),
+      '---\nmodel: qwen3.5-plus\ntools: Read\n---\n# qwen3.5-plus Agent');
+    fs.writeFileSync(path.join(testDir, 'qwen3.5-plus.md'),
+      '---\nmodel: qwen3.5-plus\ntools: Read, Write\n---\n# qwen3.5-plus Agent');
+    fs.writeFileSync(path.join(testDir, 'qwen3.5-plus.md'),
+      '---\nmodel: qwen3.5-plus\ntools: Read, Write, Bash\n---\n# qwen3.5-plus Agent');
 
     const result = runValidatorWithDir('validate-agents', 'AGENTS_DIR', testDir);
     assert.strictEqual(result.code, 0, 'All valid models should pass');
@@ -1449,7 +1449,7 @@ function runTests() {
 
   if (test('rejects agent with partial frontmatter (only model, no tools)', () => {
     const testDir = createTestDir();
-    fs.writeFileSync(path.join(testDir, 'partial.md'), '---\nmodel: haiku\n---\n# Partial agent');
+    fs.writeFileSync(path.join(testDir, 'partial.md'), '---\nmodel: qwen3.5-plus\n---\n# Partial agent');
 
     const result = runValidatorWithDir('validate-agents', 'AGENTS_DIR', testDir);
     assert.strictEqual(result.code, 1, 'Should reject partial frontmatter');
@@ -1460,7 +1460,7 @@ function runTests() {
 
   if (test('handles multiple agents where only one is invalid', () => {
     const testDir = createTestDir();
-    fs.writeFileSync(path.join(testDir, 'good.md'), '---\nmodel: sonnet\ntools: Read\n---\n# Good');
+    fs.writeFileSync(path.join(testDir, 'good.md'), '---\nmodel: qwen3.5-plus\ntools: Read\n---\n# Good');
     fs.writeFileSync(path.join(testDir, 'bad.md'), '---\nmodel: invalid-model\ntools: Read\n---\n# Bad');
 
     const result = runValidatorWithDir('validate-agents', 'AGENTS_DIR', testDir);
@@ -1501,9 +1501,9 @@ function runTests() {
     const testDir = createTestDir();
     const agentsDir = createTestDir();
     const skillsDir = createTestDir();
-    fs.writeFileSync(path.join(agentsDir, 'planner.md'), '---\nmodel: sonnet\ntools: Read\n---\n# P');
-    fs.writeFileSync(path.join(agentsDir, 'tdd-guide.md'), '---\nmodel: sonnet\ntools: Read\n---\n# T');
-    fs.writeFileSync(path.join(agentsDir, 'code-reviewer.md'), '---\nmodel: sonnet\ntools: Read\n---\n# C');
+    fs.writeFileSync(path.join(agentsDir, 'planner.md'), '---\nmodel: qwen3.5-plus\ntools: Read\n---\n# P');
+    fs.writeFileSync(path.join(agentsDir, 'tdd-guide.md'), '---\nmodel: qwen3.5-plus\ntools: Read\n---\n# T');
+    fs.writeFileSync(path.join(agentsDir, 'code-reviewer.md'), '---\nmodel: qwen3.5-plus\ntools: Read\n---\n# C');
     fs.writeFileSync(path.join(testDir, 'flow.md'), '# Flow\n\nplanner -> tdd-guide -> code-reviewer');
 
     const result = runValidatorWithDirs('validate-commands', {
@@ -1517,8 +1517,8 @@ function runTests() {
     const testDir = createTestDir();
     const agentsDir = createTestDir();
     const skillsDir = createTestDir();
-    fs.writeFileSync(path.join(agentsDir, 'planner.md'), '---\nmodel: sonnet\ntools: Read\n---\n# P');
-    fs.writeFileSync(path.join(agentsDir, 'code-reviewer.md'), '---\nmodel: sonnet\ntools: Read\n---\n# C');
+    fs.writeFileSync(path.join(agentsDir, 'planner.md'), '---\nmodel: qwen3.5-plus\ntools: Read\n---\n# P');
+    fs.writeFileSync(path.join(agentsDir, 'code-reviewer.md'), '---\nmodel: qwen3.5-plus\ntools: Read\n---\n# C');
     // missing-agent is NOT created
     fs.writeFileSync(path.join(testDir, 'flow.md'), '# Flow\n\nplanner -> missing-agent -> code-reviewer');
 
@@ -1535,19 +1535,19 @@ function runTests() {
 
   if (test('rejects uppercase model value (case-sensitive check)', () => {
     const testDir = createTestDir();
-    fs.writeFileSync(path.join(testDir, 'upper.md'), '---\nmodel: Haiku\ntools: Read\n---\n# Uppercase model');
+    fs.writeFileSync(path.join(testDir, 'upper.md'), '---\nmodel: qwen3.5-plus\ntools: Read\n---\n# Uppercase model');
 
     const result = runValidatorWithDir('validate-agents', 'AGENTS_DIR', testDir);
     assert.strictEqual(result.code, 1, 'Should reject capitalized model');
     assert.ok(result.stderr.includes('Invalid model'), 'Should report invalid model');
-    assert.ok(result.stderr.includes('Haiku'), 'Should show the rejected value');
+    assert.ok(result.stderr.includes('qwen3.5-plus'), 'Should show the rejected value');
     cleanupTestDir(testDir);
   })) passed++; else failed++;
 
   if (test('handles space before colon in frontmatter key', () => {
     const testDir = createTestDir();
-    // "model : sonnet" — space before colon. extractFrontmatter uses indexOf(':') + trim()
-    fs.writeFileSync(path.join(testDir, 'space.md'), '---\nmodel : sonnet\ntools : Read, Write\n---\n# Agent with space-colon');
+    // "model : qwen3.5-plus" — space before colon. extractFrontmatter uses indexOf(':') + trim()
+    fs.writeFileSync(path.join(testDir, 'space.md'), '---\nmodel : qwen3.5-plus\ntools : Read, Write\n---\n# Agent with space-colon');
 
     const result = runValidatorWithDir('validate-agents', 'AGENTS_DIR', testDir);
     assert.strictEqual(result.code, 0, 'Should accept space before colon (trim handles it)');
@@ -1631,7 +1631,7 @@ function runTests() {
     const testDir = createTestDir();
     // Line "just some text" has no colon — should be skipped, not cause crash
     fs.writeFileSync(path.join(testDir, 'mixed.md'),
-      '---\nmodel: sonnet\njust some text without colon\ntools: Read\n---\n# Agent');
+      '---\nmodel: qwen3.5-plus\njust some text without colon\ntools: Read\n---\n# Agent');
 
     const result = runValidatorWithDir('validate-agents', 'AGENTS_DIR', testDir);
     assert.strictEqual(result.code, 0, 'Should ignore lines without colon in frontmatter');
@@ -1765,7 +1765,7 @@ function runTests() {
     }
     const testDir = createTestDir();
     const agentFile = path.join(testDir, 'locked.md');
-    fs.writeFileSync(agentFile, '---\nmodel: sonnet\ntools: Read\n---\n# Agent');
+    fs.writeFileSync(agentFile, '---\nmodel: qwen3.5-plus\ntools: Read\n---\n# Agent');
     fs.chmodSync(agentFile, 0o000);
 
     try {
@@ -1783,7 +1783,7 @@ function runTests() {
   if (test('rejects agent when required field key has colon at position 0 (no key name)', () => {
     const testDir = createTestDir();
     fs.writeFileSync(path.join(testDir, 'bad-colon.md'),
-      '---\n:sonnet\ntools: Read\n---\n# Agent with leading colon');
+      '---\n:qwen3.5-plus\ntools: Read\n---\n# Agent with leading colon');
 
     const result = runValidatorWithDir('validate-agents', 'AGENTS_DIR', testDir);
     assert.strictEqual(result.code, 1, 'Should fail — model field is missing (colon at idx 0 skipped)');

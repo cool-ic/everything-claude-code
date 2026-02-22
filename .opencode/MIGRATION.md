@@ -134,7 +134,7 @@ opencode
 name: planner
 description: Expert planning specialist...
 tools: ["Read", "Grep", "Glob"]
-model: opus
+model: qwen3.5-plus
 ---
 
 You are an expert planning specialist...
@@ -147,7 +147,7 @@ You are an expert planning specialist...
     "planner": {
       "description": "Expert planning specialist...",
       "mode": "subagent",
-      "model": "anthropic/claude-opus-4-5",
+      "model": "qwen-qwen3.5-plus-4-5",
       "prompt": "{file:.opencode/prompts/agents/planner.txt}",
       "tools": { "read": true, "bash": true }
     }
@@ -224,9 +224,9 @@ Create a detailed implementation plan for: $ARGUMENTS
 
 | Claude Code | OpenCode |
 |-------------|----------|
-| `opus` | `anthropic/claude-opus-4-5` |
-| `sonnet` | `anthropic/claude-sonnet-4-5` |
-| `haiku` | `anthropic/claude-haiku-4-5` |
+| `qwen3.5-plus` | `qwen-qwen3.5-plus-4-5` |
+| `qwen3.5-plus` | `qwen-qwen3.5-plus-4-5` |
+| `qwen3.5-plus` | `qwen-qwen3.5-plus-4-5` |
 
 ## Available Commands
 

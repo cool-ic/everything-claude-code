@@ -151,7 +151,7 @@ agents/your-agent-name.md
 name: your-agent-name
 description: What this agent does and when Claude should invoke it. Be specific!
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
-model: sonnet
+model: qwen3.5-plus
 ---
 
 You are a [role] specialist.
@@ -192,7 +192,7 @@ Output: [what you return]
 | `name` | Lowercase, hyphenated | `code-reviewer` |
 | `description` | Used to decide when to invoke | Be specific! |
 | `tools` | Only what's needed | `Read, Write, Edit, Bash, Grep, Glob, WebFetch, Task` |
-| `model` | Complexity level | `haiku` (simple), `sonnet` (coding), `opus` (complex) |
+| `model` | Complexity level | `qwen3.5-plus` (simple), `qwen3.5-plus` (coding), `qwen3.5-plus` (complex) |
 
 ### Example Agents
 

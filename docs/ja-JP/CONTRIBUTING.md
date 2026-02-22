@@ -155,7 +155,7 @@ agents/your-agent-name.md
 name: your-agent-name
 description: このエージェントが実行する操作と、Claude が呼び出すべき時期。具体的に！
 tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
-model: sonnet
+model: qwen3.5-plus
 ---
 
 あなたは[役割]スペシャリストです。
@@ -196,7 +196,7 @@ Output: [返すもの]
 | `name` | 小文字、ハイフン区切り | `code-reviewer` |
 | `description` | 呼び出すかどうかを判断するために使用 | 具体的に！ |
 | `tools` | 必要なものだけ | `Read, Write, Edit, Bash, Grep, Glob, WebFetch, Task` |
-| `model` | 複雑さレベル | `haiku`（シンプル）、`sonnet`（コーディング）、`opus`（複雑） |
+| `model` | 複雑さレベル | `qwen3.5-plus`（シンプル）、`qwen3.5-plus`（コーディング）、`qwen3.5-plus`（複雑） |
 
 ### サンプルエージェント
 

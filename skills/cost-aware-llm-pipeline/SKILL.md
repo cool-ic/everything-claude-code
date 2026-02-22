@@ -21,11 +21,11 @@ Patterns for controlling LLM API costs while maintaining quality. Combines model
 Automatically select cheaper models for simple tasks, reserving expensive models for complex ones.
 
 ```python
-MODEL_SONNET = "claude-sonnet-4-6"
-MODEL_HAIKU = "claude-haiku-4-5-20251001"
+MODEL_QWEN = "claude-qwen3.5-plus-4-6"
+MODEL_QWEN_SIMPLE = "claude-qwen3.5-plus-4-5-20251001"
 
-_SONNET_TEXT_THRESHOLD = 10_000  # chars
-_SONNET_ITEM_THRESHOLD = 30     # items
+_QWEN_TEXT_THRESHOLD = 10_000  # chars
+_QWEN_ITEM_THRESHOLD = 30     # items
 
 def select_model(
     text_length: int,
@@ -35,9 +35,9 @@ def select_model(
     """Select model based on task complexity."""
     if force_model is not None:
         return force_model
-    if text_length >= _SONNET_TEXT_THRESHOLD or item_count >= _SONNET_ITEM_THRESHOLD:
-        return MODEL_SONNET  # Complex task
-    return MODEL_HAIKU  # Simple task (3-4x cheaper)
+    if text_length >= _QWEN_TEXT_THRESHOLD or item_count >= _QWEN_ITEM_THRESHOLD:
+        return MODEL_QWEN  # Complex task
+    return MODEL_QWEN_SIMPLE  # Simple task (3-4x cheaper)
 ```
 
 ### 2. Immutable Cost Tracking
@@ -154,9 +154,9 @@ def process(text: str, config: Config, tracker: CostTracker) -> tuple[Result, Co
 
 | Model | Input ($/1M tokens) | Output ($/1M tokens) | Relative Cost |
 |-------|---------------------|----------------------|---------------|
-| Haiku 4.5 | $0.80 | $4.00 | 1x |
-| Sonnet 4.6 | $3.00 | $15.00 | ~4x |
-| Opus 4.5 | $15.00 | $75.00 | ~19x |
+| qwen3.5-plus 4.5 | $0.80 | $4.00 | 1x |
+| qwen3.5-plus 4.6 | $3.00 | $15.00 | ~4x |
+| qwen3.5-plus 4.5 | $15.00 | $75.00 | ~19x |
 
 ## Best Practices
 

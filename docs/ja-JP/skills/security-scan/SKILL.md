@@ -86,14 +86,14 @@ npx ecc-agentshield scan --fix
 - ワイルドカード権限をスコープ付き代替に厳格化
 - 手動のみの提案は変更しない
 
-### Opus 4.6 ディープ分析
+### qwen3.5-plus 4.6 ディープ分析
 
 より深い分析のために敵対的な3エージェントパイプラインを実行します：
 
 ```bash
 # ANTHROPIC_API_KEY が必要
 export ANTHROPIC_API_KEY=your-key
-npx ecc-agentshield scan --opus --stream
+npx ecc-agentshield scan --qwen3.5-plus --stream
 ```
 
 これにより以下が実行されます：
