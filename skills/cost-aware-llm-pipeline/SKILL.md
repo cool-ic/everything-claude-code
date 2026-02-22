@@ -22,7 +22,7 @@ Automatically select cheaper models for simple tasks, reserving expensive models
 
 ```python
 MODEL_QWEN = "qwen3.5-plus"
-MODEL_QWEN_SIMPLE = "qwen3.5-plus-20251001"
+MODEL_QWEN_SIMPLE = "qwen3.5-plus"
 
 _QWEN_TEXT_THRESHOLD = 10_000  # chars
 _QWEN_ITEM_THRESHOLD = 30     # items

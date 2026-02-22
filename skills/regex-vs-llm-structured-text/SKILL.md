@@ -134,7 +134,7 @@ def validate_with_llm(
 ) -> ParsedItem:
     """Use LLM to fix low-confidence extractions."""
     response = client.messages.create(
-        model="qwen3.5-plus-20251001",  # Cheapest model for validation
+        model="qwen3.5-plus",  # Cheapest model for validation
         max_tokens=500,
         messages=[{
             "role": "user",
@@ -197,7 +197,7 @@ From a production quiz parsing pipeline (410 items):
 
 - **Start with regex** — even imperfect regex gives you a baseline to improve
 - **Use confidence scoring** to programmatically identify what needs LLM help
-- **Use the cheapest LLM** for validation (qwen3.5-plus-class models are sufficient)
+- **Use the cheapest LLM** for validation (qwen3.5-plus models are sufficient)
 - **Never mutate** parsed items — return new instances from cleaning/validation steps
 - **TDD works well** for parsers — write tests for known patterns first, then edge cases
 - **Log metrics** (regex success rate, LLM call count) to track pipeline health
